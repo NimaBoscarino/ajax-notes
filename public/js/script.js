@@ -22,19 +22,18 @@ function renderDog(dog) {
   $('body').append(dog)
 }
 
-$('#add-dog').on('click', function (event) {
+$('#new-dog-form').on('submit', function (event) {
   event.preventDefault();
+  let newDogData = $(this).serialize() // name=spot&breed=corgi
 
-  let newDogName = $('input[name=dog-name]').val()
+  // let newDogName = $('input[name=dog-name]').val()
 
-  postDog(newDogName)
+  postDog(newDogData)
 
 })
 
-function postDog(dogName) {
-  $.post('http://localhost:5000/dogs', {
-    dog: dogName
-  }).then(dog => {
+function postDog(dogData) {
+  $.post('http://localhost:5000/dogs', dogData).then(dog => {
     let dogElement = createDogElement(dog)
     renderDog(dogElement)
   })
