@@ -12,6 +12,61 @@ Today we talked about AJAX, where it comes from, and what it's used for! We look
 
 The basic idea is that websites can respond to our interactions and redraw the DOM on the fly to reflect new data. Super cool!
 
+Ajax stands for asynchronous javascript and xml.
+
+1. What is AJAX?
+  - is not a "thing"
+  - it is a strategy
+  - "modifying the DOM based on certain data"
+  - "programmatically requesting and processing data"
+
+2. How do we use AJAX?
+
+```js
+$.ajax('https://jsonplaceholder.typicode.com/posts', {
+	success: function (data) {
+		console.log(data)
+	}
+})
+```
+
+```js
+$.ajax('https://jsonplaceholder.typicode.com/posts', {
+	method: 'POST',
+	data: {
+    	message: 'howdy',
+	},
+	success: function (data) {
+		console.log(data)
+	}
+})
+```
+
+```js
+$.ajax('https://jsonplaceholder.typicode.com/posts')
+  .then(data => console.log(data))
+
+$.get('https://jsonplaceholder.typicode.com/posts')
+  .then(data => console.log(data))
+
+$.post('https://jsonplaceholder.typicode.com/posts', {
+  message: 'howdy do'
+}).then(data => console.log(data))
+```
+
+```js
+$('body').click(function () {
+  $.post('https://jsonplaceholder.typicode.com/posts', {
+    message: 'howdy do'
+  }).then(data => {
+    console.log(data)
+    let newP = $('<p>')
+    newP.append(data.message)
+    $('body').append(newP)
+  })
+})
+```
+
 For form stuff, remember to use `e.preventDefault()` to prevent the form from submitting! Also
 
 As always, make sure you take a good look at the documentation: http://api.jquery.com/jquery.ajax/
