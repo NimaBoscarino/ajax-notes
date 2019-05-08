@@ -1,6 +1,10 @@
 # W3D3 AJAX
 
-REPO with code: https://github.com/NimaBoscarino/ajax-notes.git
+
+[REPO with some code](https://github.com/NimaBoscarino/ajax-notes.git)
+
+[REPO for Dogbook!](https://github.com/NimaBoscarino/dogbook)
+
 
 Here are some notes by KV (the demo they do is similar to what we did): https://gist.github.com/kvirani/c06a5ac421b8764a1e18a1a796962192
 
